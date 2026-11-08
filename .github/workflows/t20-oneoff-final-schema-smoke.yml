@@ -1,0 +1,30 @@
+name: T20 ONE-OFF fixed release-schema smoke
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/t20-oneoff-final-schema-smoke.yml
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -q -r requirements.txt
+      - name: Verify five-era structure and full offline smoke
+        run: |
+          python tests/test_release_reference_schema.py
+          python scripts/run_release_smoke.py > /tmp/final_smoke.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/final_smoke.json'))
+          assert x['status']=='OFFLINE_SMOKE_PASS',x
+          assert x['syntax_checked']>=14 and len(x['tests'])==5
+          assert all(y['passed'] and y['exit']==0 for y in x['tests']),x
+          print('T20_PUBLIC_FINAL_SMOKE_PASS',x['syntax_checked'],'files',len(x['tests']),'tests')
+          PY
