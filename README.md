@@ -1,6 +1,6 @@
-# Momentum as a Market Regularity — reproducibility package (candidate)
+# Momentum as a Market Regularity — reproducibility package
 
-**Status:** Public standalone replication source repository. The offline smoke test passed on 2026-11-08. No tagged software release or Zenodo DOI exists yet. Original publisher datasets are not bundled, and full raw-data replay requires the exact archived vintages.
+**Status:** Public standalone replication source repository. The offline smoke test passed on 2026-11-08. Zenodo metadata are prepared in `CITATION.cff`, but no tagged release or DOI has been published yet. Original publisher datasets are not bundled, and full raw-data replay requires the exact archived vintages.
 
 This standalone public source package supports the provider-created *French momentum research factors* and the author's *12-industry ranking calculation* underlying the paper's empirical discussion. **It is not a stock-level recreation of the Kenneth French factor, an investable net-return fund simulation, or a replication of all cited historical studies.**
 
