@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use the analysis code or author-created exhibits in this repository, please cite this software archive. The accompanying working paper should be cited separately when available."
+type: software
+title: "Momentum as a Market Regularity: Replication Code and Empirical Exhibits"
+authors:
+  - family-names: "Lee"
+    given-names: "Sungkyu"
+    affiliation: "Graduate School of Computing, Yonsei University"
+repository-code: "https://github.com/slackquant80/momentum-market-regularity-replication"
+url: "https://github.com/slackquant80/momentum-market-regularity-replication"
+abstract: "Source-pinned Python analyses and author-created empirical exhibits supporting Momentum as a Market Regularity. Includes U.S. stock and industry momentum, international factor diagnostics, and an analysis of published AQR multi-asset time-series momentum factors. Third-party original datasets are not redistributed, and the complete all-input archived-vintage replay has not been independently executed in a clean environment."
+keywords:
+  - "momentum"
+  - "asset pricing"
+  - "trend following"
+  - "cross-sectional momentum"
+  - "time-series momentum"
+  - "portfolio diversification"
