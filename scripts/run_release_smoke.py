@@ -43,7 +43,8 @@ def main() -> None:
     tests = [command("tests/test_verify_pinned_inputs.py"),
              command("tests/test_aqr_synthetic_contract.py"),
              command("scripts/test_t20_international_momentum.py"),
-             command("scripts/verify_exhibit_labels.py")]
+             command("scripts/verify_exhibit_labels.py"),
+             command("tests/test_release_reference_schema.py")]
     all_good = all(x["passed"] for x in syntax) and all(x["passed"] for x in tests)
     output = {
         "status": "OFFLINE_SMOKE_PASS" if all_good else "OFFLINE_SMOKE_FAIL",
