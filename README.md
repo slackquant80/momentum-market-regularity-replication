@@ -10,7 +10,7 @@ This standalone public source package supports the provider-created *French mome
 - `scripts/t20_12industry_official_live_source_check.py` — industry source parser, 12–2 ranking and synthetic long–short spread diagnostics; the synthetic wealth-path statistics are **not funded account performance**.
 - `scripts/t20_conditional_mom_panel.py` — separately supplied official US Mom and FF3 monthly inputs, sample/figure-value consistency.
 - `scripts/t20_mom_rolling_stability.py` — Figure 5 trailing-window analysis of the provider-constructed US Mom factor.
-- `exhibits/` — byte-identical copies of the author-created Figure 4–6 SVG assets, retained for source-cell checks. Original author-code/figure licensing and third-party data-use boundaries remain explicit.
+- `exhibits/` — byte-identical copies of the author-created Figure 4–6 SVG assets, retained for source-cell checks. Original author-code/figure licensing and third-party data-use boundaries are specified below.
 - `scripts/verify_exhibit_labels.py` — deterministic checks for 16 source-to-figure SVG text labels (Figure 4: 9, Figure 5: 2, Figure 6: 5). This checks displayed labels, not full SVG geometry.
 - `scripts/t20_french_international_momentum_replay.py` — six published international/US WML factors with historical regional diagnostics.
 - `scripts/test_t20_international_momentum.py` — synthetic parser/contract tests, **not** a test of real-data result parity.
@@ -71,12 +71,21 @@ The integrated US/industry audit command requests the current live provider file
 
 The published French Mom/WML research factors are provider-constructed, gross long–short series. US industry analysis independently ranks **provider-constructed 12 industry portfolios**, not individual stocks. Region universes overlap; Japan is an important weak case. Past overlapping rolling 10-year windows cannot be interpreted as independent success probabilities. Costs, financing and short-borrowing are not represented by most gross factor statistics. Published-study redraws and conceptual figures are deliberately excluded from this **code-only candidate**. AQR multiasset reanalysis is included, but its 202605 source receipt and provider-origin qualification remain separate from the French 202609 factor analyses.
 
+## Licenses and rights
+
+- **Original author-created Python source in `scripts/` and `tests/`:** MIT, see the root [LICENSE](LICENSE).
+- **Original author-created SVGs in `exhibits/`:** Creative Commons Attribution 4.0 International (CC BY 4.0), see [exhibits/LICENSE.md](exhibits/LICENSE.md).
+- **Original author-written README and explanatory provenance narratives:** CC BY 4.0 to the extent copyrightable. Factual numbers and source hashes are not an assignment of rights to the underlying provider data.
+- **External Kenneth French, AQR and other third-party datasets, third-party studies, marks, and upstream packages:** not relicensed by this repository; original raw archives are not included. Their own source terms apply.
+
+The `CITATION.cff` declares MIT for the primary **software** record. This is not a grant of MIT rights to the separately CC BY 4.0-authored illustrations. The archive contains mixed-license material; read these per-path notices before reuse. The paper itself is a distinct manuscript and is not licensed here.
+
 ## Reproducibility and tagged-release gates
 
 1. Run `python scripts/run_release_smoke.py` from a newly exported clean working tree. It passed in the independent one-off Ubuntu environment on 2026-11-08. Independently verify exact input archive checksums where original snapshots are available.
 2. Replay of each included result and independent rounding/caption comparison with the frozen manuscript.
-3. Review external provider terms and attribution; never redistribute French or AQR raw files. Author must approve a license for ORIGINAL author-created code and figures; no license has yet been granted by this candidate.
-4. The public repository was populated from an audited working-tree allowlist with fresh Git history, separate from the private research project. Finish any remaining complete-figure QA and author signoff before a tagged archival release.
-5. After the author determines a license for original code and figures, tag an immutable source release. Archive on Zenodo only if a citable DOI adds value. The paper PDF may cite the stable public GitHub repository URL without asserting a nonexistent DOI.
+3. Confirm third-party source attribution and terms; never redistribute French/AQR raw source data. The author approved MIT for original Python code and CC BY 4.0 for author-created figures and original narrative.
+4. The public repository was populated from an audited working-tree allowlist with fresh Git history, separate from the private research project. Original manuscript display and reference checks were completed independently; full archived-vintage end-to-end real-data verification is not claimed.
+5. After confirming the mixed-license notices, publish a tagged software release for Zenodo archiving. Verify the actual resulting DOI and the Zenodo metadata before adding the DOI to this README. The paper PDF may retain its stable GitHub URL.
 
 This package is evidence for a Foundation practitioner synthesis, not a claim of new underlying market return discovery.
