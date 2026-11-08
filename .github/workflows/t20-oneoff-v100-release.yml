@@ -1,0 +1,96 @@
+name: T20 ONE-OFF v1.0.0 GitHub/Zenodo release
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/t20-oneoff-v100-release.yml
+permissions:
+  contents: write
+jobs:
+  verify-and-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install pinned scientific packages and YAML validator
+        run: python -m pip install -q -r requirements.txt PyYAML
+      - name: Verify exact license, citation metadata, sources and offline tests
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess, yaml
+          root=pathlib.Path('.')
+          meta=yaml.safe_load((root/'CITATION.cff').read_text())
+          assert meta['cff-version']=='1.2.0' and meta['type']=='software'
+          assert meta['license']=='MIT'
+          assert meta['authors'][0]['family-names']=='Lee'
+          assert meta['authors'][0]['given-names']=='Sungkyu'
+          assert (root/'LICENSE').read_text().startswith('MIT License')
+          assert 'CC BY 4.0' in (root/'exhibits/LICENSE.md').read_text()
+          assert not (root/'.zenodo.json').exists()
+          for extension in ('*.zip','*.xlsx','*.xls','*.csv'):
+              assert not list(root.rglob(extension)),f'Unexpected provider-style data files: {extension}'
+          print('LICENSES_AND_CFF_METADATA_PASS')
+          PY
+          python scripts/run_release_smoke.py > /tmp/t20_release_qa.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/t20_release_qa.json'))
+          assert x['status']=='OFFLINE_SMOKE_PASS',x
+          assert x['syntax_checked']>=14 and len(x['tests'])==5
+          assert all(t['passed'] and t['exit']==0 for t in x['tests']), x
+          print('T20_V100_FINAL_OFFLINE_PASS',x['syntax_checked'],'python files',len(x['tests']),'commands')
+          PY
+      - name: Publish immutable source-only software release for enabled Zenodo integration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "${GITHUB_REPOSITORY}" = "slackquant80/momentum-market-regularity-replication"
+          test "${GITHUB_REF}" = "refs/heads/main"
+          if gh release view v1.0.0 >/dev/null 2>&1; then
+            echo "Refusing overwrite: v1.0.0 already exists"
+            exit 1
+          fi
+          # Tag the fully validated source tree BEFORE this temporary workflow
+          # was added, so that Zenodo never archives this one-off workflow.
+          TARGET_SHA="$(git rev-parse HEAD^)"
+          printf 'Releasing vetted source snapshot: %s\n' "$TARGET_SHA"
+          cat > /tmp/t20-release-notes.md <<'NOTES'
+          Initial reproducibility software release supporting the working paper
+          *Momentum as a Market Regularity*.
+
+          Contents: original author-written Python diagnostics, independently
+          constructed 12-industry ranking code, frozen provider-vintage hash
+          manifests, author-created Figure 4–6 SVGs, source comparison receipts,
+          synthetic/offline regression tests, and software citation metadata.
+
+          Earlier author research replayed the September 2026 official
+          Kenneth French regional factor / industry source files, and the
+          archived AQR May 2026 XLSX factors were checked against the extracted
+          497-month CSV (2,485 numerical cells). The clean offline software
+          test verifies source hashes, error handling, 5 historical industry
+          subperiod schema keys, and 16/16 figure display-label comparisons.
+
+          Limitations: original Kenneth French/AQR files are NOT redistributed.
+          The full one-command 202609 archived-original source replay has NOT
+          been executed in a clean public release environment. Research factor
+          returns and synthetic long-short wealth paths are not funded net
+          investable account results. Older literature figures are attributed
+          summaries and are NOT replicated here.
+
+          License: MIT for original Python source in scripts/ and tests/;
+          CC BY 4.0 for original SVG figures in exhibits/ and author's original
+          narrative documentation. Source providers retain their rights to
+          all external raw data. See LICENSE, exhibits/LICENSE.md and README.
+          NOTES
+          gh release create v1.0.0 --repo "${GITHUB_REPOSITORY}" \
+            --target "$TARGET_SHA" \
+            --title "T20 Momentum Replication Package v1.0.0" \
+            --notes-file /tmp/t20-release-notes.md
+          gh release view v1.0.0 --repo "${GITHUB_REPOSITORY}" --json tagName,url,isDraft,isPrerelease,targetCommitish \
+            --jq '{tag:.tagName,url:.url,draft:.isDraft,prerelease:.isPrerelease,target:.targetCommitish}'
