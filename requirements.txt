@@ -1,0 +1,5 @@
+# Reproducibility test environment: Python 3.13.5 (2026-11-08).
+# Lock evaluated Python dependencies; source data are never bundled here.
+numpy==2.3.5
+pandas==2.2.3
+matplotlib==3.10.8

@@ -1,0 +1,87 @@
+{
+  "schema": "t20-pinned-input-provenance-v1",
+  "status": "ARCHIVED_SOURCE_RECEIPT_ONLY; CURRENT PUBLIC PACKAGE REAL-DATA REPLAY PENDING",
+  "source_origins": [
+    "Kenneth French Data Library September 2026 vintage",
+    "AQR TSMOM archived May 29 2026 original workbook"
+  ],
+  "french_vintage": "202609",
+  "french_archives": [
+    {
+      "filename": "F-F_Momentum_Factor_CSV.zip",
+      "zip_sha256": "27ed60e5b2caa9ea334a261cddfa864a9926f6bf45e9677c95dfd835c5abb315",
+      "csv_sha256": "81ff7cab5517159daa5a66c83fd90d4076a0864be2d5fef179719c0f9049a8cb",
+      "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+    },
+    {
+      "filename": "Developed_ex_US_Mom_Factor_CSV.zip",
+      "zip_sha256": "7f74b4af425042ea1734e64372309d9be785fba65fe52922c79061ca8dc4a60a",
+      "csv_sha256": "82a9ca2d85199efd6628e423823045e6c043f59f05f1a075c53dbd06108afe0b",
+      "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+    },
+    {
+      "filename": "Europe_Mom_Factor_CSV.zip",
+      "zip_sha256": "ac254c7011515cc8b3c280dbe374fe8d05b6c5a5603cd7b17101c9fb2e3bdaa0",
+      "csv_sha256": "a9931503b02bbfa93a99f4d642c8b1ada909cebc004d2a6e1d13725022856821",
+      "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+    },
+    {
+      "filename": "Japan_Mom_Factor_CSV.zip",
+      "zip_sha256": "beb4fc53d4b34f8d21db104706854fd24610332609c6275373345597f6e1808b",
+      "csv_sha256": "8397fcc53f13ddda14559057a04b25e1a37368bce6b7fa523bf6a39c339fab1f",
+      "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+    },
+    {
+      "filename": "Asia_Pacific_ex_Japan_MOM_Factor_CSV.zip",
+      "zip_sha256": "d0792c1f08cb7becde2c94ee24b432e8c21430aa9f406bdb1e9463f6ece35b96",
+      "csv_sha256": "730eaad2dd234c5ad6ce17bcc562984a1440ffdaaab257abb60f162ab6a8225f",
+      "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+    },
+    {
+      "filename": "North_America_Mom_Factor_CSV.zip",
+      "zip_sha256": "d750cc8a23da322704f6617f1603f7f01effe21c681df6c76823946ca385e361",
+      "csv_sha256": "7ef156e01c95da046e845fb3ff524e0e9a1dca0a7c6b936a6e996af7684c7495",
+      "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html"
+    }
+  ],
+  "additional_french_ff3": {
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip",
+    "csv_sha256": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb",
+    "zip_sha256": "b03d39e4bb253dda0f14893db3b78e64b40b8d6549a0fc0fd4111dae84c98618"
+  },
+  "aqr": {
+    "vintage": "202605",
+    "original_xlsx_sha256": "33470930e2269c0d97be4732ec2d9c27ddbc69ac8133b059a263e27400263eeb",
+    "extracted_csv_sha256": "bef2a5871e2676de25fc25ff1dc1c3b4205604661210f171a38e6c23bd3993f7",
+    "original_xlsx_archive_url": "https://github.com/KonomiYuzu01/HMM/blob/93593ebb62973fc5a26b9c8af176bda90895e29c/data/aqr_tsmom_factors_monthly.xlsx",
+    "original_xlsx_archive_git_blob": "cdcd02d8cf98e307f95308a95f682934798ac4c1",
+    "extracted_csv_archive_git_blob": "4cd9e4b4391fea21bfadf94c481d4f28da06babf",
+    "source_cell_parity": {
+      "dates_matched": 497,
+      "numeric_factor_cells_matched": 2485,
+      "mismatches": 0,
+      "missing_months": 0,
+      "first": "1985-01",
+      "last": "2026-05",
+      "sheets": "TSMOM Factors / sheet1.xml / Excel rows 19–515 / columns A:F",
+      "verified_by": "Fresh independent ZIP/XML extraction from archived original Excel workbook and element-wise numerical equality to separate CSV"
+    },
+    "ff3_source": {
+      "provider": "Kenneth French data library",
+      "archived_vintage": "202605",
+      "mirror_github_blob": "880245826fe95c46e8345ff07d9b9fb276c02da2",
+      "limitation": "market Mkt-RF source mirror is version pinned but separately provider-download SHA has not been verified in current run"
+    }
+  },
+  "publication_gate": "Raw data files are not redistributed, and exact 202609 snapshots must be obtained independently. If not available, historical checksums cannot by themselves certify a fresh reproduction.",
+  "industry_202609": {
+    "filename": "12_Industry_Portfolios_CSV.zip",
+    "zip_sha256": "78ff32de9b3b308c96beb48a5f6f8ae06209495ef63ee6efa274d6bdbb491b86",
+    "csv_sha256": "9bda99d2afbb48f5569670da5dc3f9ce5ae2661be4bd030effee91fff3976b6c",
+    "provider": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "source_verification": "Archived author audit: original Dartmouth September 2026 ZIP/CSV checksums and 1191-month strategy result independently checked; raw data and private audit logs are not distributed.",
+    "source_first": "192607",
+    "source_last": "202609",
+    "monthly_source_rows": 1203
+  }
+}

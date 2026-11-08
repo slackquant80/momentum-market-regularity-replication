@@ -1,0 +1,136 @@
+{
+  "schema": "t20-figure4-6-source-label-check-v1",
+  "verified_on": "2026-11-08",
+  "result": "16_OF_16_ORIGINAL_SOURCE_LABELS_MATCH",
+  "total": 16,
+  "passed": 16,
+  "method": "Independent direct JavaScript read of exact author SVG Git blobs, comparing displayed rounded means/counts to official frozen empirical replay numbers; NOT execution of the saved Python verifier or full geometry/cost-audit",
+  "manuscript_version": "v0.5.36",
+  "manuscript_blob": "e1b0b7d5669413a80f798c1c3301dff91ee8ac4f",
+  "figure_blob_sha": {
+    "4": "f71554721bc471c1d816de18547d2edc3c68da0c",
+    "5": "6d78fe2a48b4851731facd27c52891f8e15f59f7",
+    "6": "55356435ca02733fe42ab141422c80a08ef46662"
+  },
+  "original_source_202609": "Original Kenneth French Data Library September 2026 12-industry/Mom/FF3, original-source author archive hashes listed in pinned_inputs.json",
+  "tests": [
+    {
+      "figure": 4,
+      "period": "1927–1949",
+      "expected": "+0.48% (n=276)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "1950–1979",
+      "expected": "+0.87% (n=360)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "1980–1999",
+      "expected": "+0.94% (n=240)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "2000–2019",
+      "expected": "+0.17% (n=240)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "2020–2026",
+      "expected": "+0.31% (n=81)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "Market ≤ −5%",
+      "expected": "+2.20% (n=122)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "−5% < Market < 0",
+      "expected": "+0.87% (n=323)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "0% ≤ Market < 5%",
+      "expected": "+0.86% (n=543)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 4,
+      "period": "Market ≥ +5%",
+      "expected": "-1.32% (n=209)",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 5,
+      "period": "10-year",
+      "expected": "91.2% of windows > 0",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 5,
+      "period": "20-year",
+      "expected": "99.6% of windows > 0",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 6,
+      "period": "1927–1949",
+      "expected": "+0.467 pp",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 6,
+      "period": "1950–1979",
+      "expected": "+0.412 pp",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 6,
+      "period": "1980–1999",
+      "expected": "+0.481 pp",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 6,
+      "period": "2000–2019",
+      "expected": "+0.234 pp",
+      "occurrences": 1,
+      "pass": true
+    },
+    {
+      "figure": 6,
+      "period": "2024–Sep 2026",
+      "expected": "-0.079 pp",
+      "occurrences": 1,
+      "pass": true
+    }
+  ],
+  "limitations": [
+    "Figure 5 2 legend percentages checked, not full plotted curve geometry",
+    "Figure 6 five displayed bars checked, not omitted 2020–2023 period; omission is disclosed in manuscript caption",
+    "Source-vintage ZIP and CSV verification was previously done in bounded official Python run, not re-downloaded here",
+    "This read-only source display audit alone is not a public software release gate"
+  ]
+}

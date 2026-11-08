@@ -1,0 +1,135 @@
+{
+  "schema": "t20-aqr-independent-real-data-js-check-v1",
+  "date": "2026-11-08",
+  "method": "Independent JavaScript aggregate calculation on pinned archived GitHub blob CSV texts; not execution of public Python package",
+  "status": "14_OF_14_NUMERIC_CHECKS_PASS",
+  "sources": [
+    {
+      "repository": "KonomiYuzu01/HMM",
+      "git_blob_sha": "4cd9e4b4391fea21bfadf94c481d4f28da06babf",
+      "description": "AQR May 2026 TSMOM archived extracted CSV; workbook parity separately verified"
+    },
+    {
+      "repository": "BuyRisk/buyrisk.github.io",
+      "git_blob_sha": "880245826fe95c46e8345ff07d9b9fb276c02da2",
+      "description": "French 202605 FF3 mirror; original publisher re-download not newly verified"
+    }
+  ],
+  "sample": {
+    "n": 497,
+    "first": "1985-01",
+    "last": "2026-05",
+    "market_down5_n": 49
+  },
+  "checks": [
+    {
+      "label": "sample_n",
+      "actual": 497,
+      "published_reference": 497,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "label": "total_mean_month_pct",
+      "actual": 1.0205724066484372,
+      "published_reference": 1.0205724066484372,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "total_annual_vol_pct",
+      "actual": 12.485220937191004,
+      "published_reference": 12.485220937191004,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "commodity_mean_pct",
+      "actual": 0.8045973520602833,
+      "published_reference": 0.8045973520602833,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "equity_mean_pct",
+      "actual": 1.253644479403927,
+      "published_reference": 1.253644479403927,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "bonds_mean_pct",
+      "actual": 1.490106821300018,
+      "published_reference": 1.490106821300018,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "fx_mean_pct",
+      "actual": 0.8411131051130689,
+      "published_reference": 0.8411131051130689,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "down5_n",
+      "actual": 49,
+      "published_reference": 49,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "label": "down5_tsmom_mean_pct",
+      "actual": 2.586273218509964,
+      "published_reference": 2.586273218509964,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "down5_bonds_mean_pct",
+      "actual": 6.846988919359783,
+      "published_reference": 6.846988919359783,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "market_annual_vol_pct",
+      "actual": 15.53783804267621,
+      "published_reference": 15.53783804267621,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "8020_annual_vol_pct",
+      "actual": 12.484110954050909,
+      "published_reference": 12.484110954050909,
+      "tolerance": 1e-8,
+      "pass": true
+    },
+    {
+      "label": "recent_n",
+      "actual": 77,
+      "published_reference": 77,
+      "tolerance": 0,
+      "pass": true
+    },
+    {
+      "label": "recent_mean_month_pct",
+      "actual": 0.35163456228683104,
+      "published_reference": 0.3516,
+      "tolerance": 0.0001,
+      "pass": true
+    }
+  ],
+  "additional": {
+    "hac12_t_tsmom_full": 6.4138923022833065,
+    "hac12_t_tsmom_2020_onward": 0.8277605930931744
+  },
+  "scope_limits": [
+    "No raw AQR futures reconstruction",
+    "Not a funded cost-complete portfolio",
+    "No clean Python runtime replay performed",
+    "Time-conditioning uses ex-post market states",
+    "Official May 2026 AQR workbook parity previously independently verified; French market mirror not newly compared with official provider bytes"
+  ]
+}

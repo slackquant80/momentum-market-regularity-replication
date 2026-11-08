@@ -1,0 +1,90 @@
+{
+  "schema": "t20-staging-source-identical-offline-targeted-python-qa-v1",
+  "date": "2026-11-08",
+  "status": "9_OF_9_EXACT_STAGED_PYTHON_CONTRACT_CASES_PASS",
+  "runtime": "Python 3.13.5, isolated local",
+  "source_identities": [
+    {
+      "file": "scripts/verify_pinned_inputs.py",
+      "git_blob_sha": "901e35b86ea13c7ee2a0b9b5d06ac0b3163526ad",
+      "local_git_blob_match": true
+    },
+    {
+      "file": "tests/test_verify_pinned_inputs.py",
+      "git_blob_sha": "e0110ade81a7a15287fd4c51b07e992927c37432",
+      "local_git_blob_match": true
+    },
+    {
+      "file": "scripts/t20_crossasset_independent_replay.py",
+      "git_blob_sha": "bcdbe5b6658814bad30e8ac7f93d84bd376c424b",
+      "local_git_blob_match": true
+    },
+    {
+      "file": "tests/test_aqr_synthetic_contract.py",
+      "git_blob_sha": "b5796022a69a21e0be3d82588fa0bd9b5b0eb349",
+      "local_git_blob_match": true
+    }
+  ],
+  "checks": [
+    {
+      "target": "tests/test_verify_pinned_inputs.py",
+      "name": "valid ZIP/CSV",
+      "pass": true,
+      "expected_exit": 0
+    },
+    {
+      "target": "tests/test_verify_pinned_inputs.py",
+      "name": "missing ZIP",
+      "pass": true,
+      "expected_exit": 1
+    },
+    {
+      "target": "tests/test_verify_pinned_inputs.py",
+      "name": "tampered ZIP SHA",
+      "pass": true,
+      "expected_exit": 1
+    },
+    {
+      "target": "tests/test_verify_pinned_inputs.py",
+      "name": "wrong decompressed CSV SHA",
+      "pass": true,
+      "expected_exit": 1
+    },
+    {
+      "target": "tests/test_verify_pinned_inputs.py",
+      "name": "correct separate 12-industry ZIP",
+      "pass": true,
+      "expected_exit": 0
+    },
+    {
+      "target": "tests/test_verify_pinned_inputs.py",
+      "name": "tampered separate 12-industry ZIP",
+      "pass": true,
+      "expected_exit": 1
+    },
+    {
+      "target": "tests/test_aqr_synthetic_contract.py",
+      "name": "497 synthetic AQR/FF3 monthly rows end-to-end parsed and computed",
+      "pass": true,
+      "expected_exit": 0
+    },
+    {
+      "target": "tests/test_aqr_synthetic_contract.py",
+      "name": "incorrect AQR input SHA flag fails",
+      "pass": true,
+      "expected_exit": "nonzero"
+    },
+    {
+      "target": "tests/test_aqr_synthetic_contract.py",
+      "name": "497-month required sample fails when last month missing",
+      "pass": true,
+      "expected_exit": "nonzero"
+    }
+  ],
+  "limits": [
+    "The combined scripts/run_release_smoke.py entry point has not itself completed a source-tree-wide run.",
+    "Neither original September 2026 provider raw ZIPs nor original AQR 202605 source bytes were supplied to these nine local tests.",
+    "Existing original-source official 202609 French regional and industry research replays were independently verified earlier; see separate source hashes and receipts.",
+    "No GitHub Actions were executed or billed for this testing."
+  ]
+}
