@@ -1,0 +1,52 @@
+name: T20 v1.0.1 one-time verified public software release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/t20-v101-one-time-github-release.yml
+
+permissions:
+  contents: write
+
+jobs:
+  release-source-locked-commit:
+    if: github.repository == 'slackquant80/momentum-market-regularity-replication'
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Verify exact reviewed source and create immutable GitHub v1.0.1
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          FROZEN='f1fc47d8b7f90f5beb8a599cf66530a37b84f1fe'
+          test "$(git cat-file -t "$FROZEN")" = commit
+          SCIENCE_SVG=$(git show "$FROZEN:exhibits/t20_fig06_industry_contiguous_1927_202609_VERIFIED.svg" | git hash-object --stdin)
+          test "$SCIENCE_SVG" = '9b9ac0a6dd90534f509f88f26a7db2e92d540f17'
+          git show "$FROZEN:CITATION.cff" | grep -q 'version: "v1.0.1"'
+          if git show "$FROZEN:CITATION.cff" | grep -q 'doi: 10.5281/zenodo.24047812'; then echo 'Old version-specific Zenodo DOI incorrectly reused'; exit 1; fi
+          git ls-remote --exit-code --tags origin 'refs/tags/v1.0.0' >/dev/null
+          if git ls-remote --exit-code --tags origin 'refs/tags/v1.0.1' >/dev/null; then echo 'v1.0.1 tag already exists: refusing to overwrite'; exit 1; fi
+          if gh release view v1.0.1 >/dev/null 2>&1; then echo 'Release already exists: refusing to overwrite'; exit 1; fi
+          cat > /tmp/t20-v101-release-notes.md <<'EOF'
+          This software release accompanies **Momentum as a Market Regularity**, existing SSRN abstract ID 7707479 (revised November 15, 2026).
+
+          - Replaces the selectively shortened fifth historical period in Figure 6 with the contiguous 2020–September 2026 interval (**81 months, +0.769 percentage points per month**).
+          - Discloses the nested January 2024–September 2026 interval (**33 months, −0.079 percentage points per month**) in scientific provenance, not as a separate fifth bar.
+          - Source evidence: original Kenneth French September 2026 data were directly replayed in the archived 2026-11-04 research run 41792780016; the canonical author SVG remains a gross industry ranking spread, not funded net returns.
+          - Adds deterministic figure regeneration, archived official-source verification receipt, exact figure label tests, stronger full-vintage optional input checks, and corresponding citation metadata.
+          - Bounded offline smoke pass: https://github.com/slackquant80/momentum-market-regularity-replication/actions/runs/43725829668
+          - Existing GitHub v1.0.0 and fixed Zenodo version DOI **10.5281/zenodo.24047812** remain immutable. The concept DOI **10.5281/zenodo.24047811** is preserved; a new v1.0.1 Zenodo version DOI must be verified after actual archiving.
+
+          No original third-party provider datasets or manuscript PDFs are redistributed. No changes to strategy definition, raw historical analysis, or any investment operating system.
+          EOF
+          gh release create v1.0.1 --target "$FROZEN" --title 'T20 Momentum Replication v1.0.1 — corrected contiguous Figure 6' --notes-file /tmp/t20-v101-release-notes.md
+          gh release view v1.0.1 --json tagName,targetCommitish,isDraft,isPrerelease,url
+          test "$(git rev-parse refs/tags/v1.0.0^{})" != "$FROZEN"
+          echo "RELEASE_V1_0_1_TARGET=$FROZEN"
