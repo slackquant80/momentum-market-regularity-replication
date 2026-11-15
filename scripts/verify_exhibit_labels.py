@@ -39,7 +39,7 @@ def main() -> None:
         if not any(value in s for s in fig5):
             raise AssertionError(f"Figure 5 {key}: {value!r} not shown")
         count += 1
-    fig6 = labels("t20_1927_2026_12industry_official_202609_VALIDATED.svg")
+    fig6 = labels("t20_fig06_industry_contiguous_1927_202609_VERIFIED.svg")
     for period, n, mean in REFERENCE["figure6_202609"]["selected_periods"]:
         value = f"{mean:+.3f} pp"
         check(f"Figure 6 {period}", fig6, value)
@@ -47,9 +47,16 @@ def main() -> None:
             raise AssertionError(f"Figure 6 {period}: n={n} missing")
         count += 1
     if count != 16:
-        raise AssertionError(f"Expected exactly 16 display tests, got {count}")
-    print(json.dumps({"status":"16_OF_16_EXHIBIT_LABELS_MATCH",
-                      "figure4":9,"figure5":2,"figure6":5,
+        raise AssertionError(f"Expected exactly 16 current exhibit tests, got {count}")
+    legacy = labels("t20_1927_2026_12industry_official_202609_VALIDATED.svg")
+    for value in ("+0.467 pp", "+0.412 pp", "+0.481 pp", "+0.234 pp", "-0.079 pp"):
+        check("archived v1.0.0 Figure 6 " + value, legacy, value)
+    if "+0.769 pp" in legacy or "-0.079 pp" in fig6:
+        raise AssertionError("Figure 6 version boundary crossed")
+    if not any("Nested short window Jan 2024" in line for line in fig6):
+        raise AssertionError("Revised Figure 6 must retain nested negative episode disclosure")
+    print(json.dumps({"status":"16_OF_16_CURRENT_LABELS_AND_5_LEGACY_BARS_MATCH",
+                      "figure4":9,"figure5":2,"figure6":5,"legacy_figure6":5,
                       "scope":"SVG text labels only; curve geometry / full PDF inspection not certified"},
                      indent=2))
 

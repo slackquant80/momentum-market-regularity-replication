@@ -91,6 +91,10 @@
       "2024_202609": {
         "n": 33,
         "mean_spread_month_pp": -0.079495
+      },
+      "2020_202609": {
+        "n": 81,
+        "mean_spread_month_pp": 0.76893
       }
     },
     "source": "Original Kenneth French Data Library 202609 industry returns; independently calculated author rank spread, fixed research audit, source raw data not distributed",
@@ -163,7 +167,7 @@
     }
   },
   "figure6_202609": {
-    "source": "Original Kenneth French 202609 12-industry portfolio CSV; author ranking/calculation receipt",
+    "source": "Archived Nov-4-2026 official Dartmouth Sept-2026 12-industry CSV direct-monthly 12-2 ranking replay; separate provenance/figure6_contiguous_official_202609_replay.json; five contiguous bars, historical short nested interval disclosed",
     "selected_periods": [
       [
         "1927–1949",
@@ -186,11 +190,17 @@
         0.233792
       ],
       [
-        "2024–Sep 2026",
-        33,
-        -0.079495
+        "2020–Sep 2026",
+        81,
+        0.76893
       ]
     ],
-    "full_n": 1191
+    "full_n": 1191,
+    "nested_short_window": {
+      "period": "2024–Sep 2026",
+      "n": 33,
+      "mean_spread_month_pp": -0.079495
+    },
+    "previous_svg": "exhibits/t20_1927_2026_12industry_official_202609_VALIDATED.svg (v1.0.0)"
   }
 }
