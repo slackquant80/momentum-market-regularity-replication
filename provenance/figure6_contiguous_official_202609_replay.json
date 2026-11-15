@@ -1,0 +1,67 @@
+{
+  "schema": "t20-figure6-contiguous-era-direct-official-202609-v1",
+  "status": "EXACT_202609_PROVIDER_HOST_MONTHLY_STRATEGY_REPLAY_PASS_ARCHIVED",
+  "verification_date": "2026-11-04",
+  "verification_run_url": "https://github.com/slackquant80/research-investment-papers/actions/runs/41792780016",
+  "verification_run_id": 41792780016,
+  "verification_job_id": 126449787565,
+  "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/12_Industry_Portfolios_CSV.zip",
+  "source_vintage": "202609",
+  "source_zip_sha256": "78ff32de9b3b308c96beb48a5f6f8ae06209495ef63ee6efa274d6bdbb491b86",
+  "source_csv_sha256": "9bda99d2afbb48f5569670da5dc3f9ce5ae2661be4bd030effee91fff3976b6c",
+  "strategy": "12–2 lookback, monthly formation; equal-weight long top-3 minus short bottom-3 of 12 official value-weighted US industry portfolios; next-month returns",
+  "source_monthly_rows": 1203,
+  "source_last": "202609",
+  "full": {
+    "n": 1191,
+    "mean_month_pp": 0.426784,
+    "synthetic_cagr_pct": 4.166768,
+    "synthetic_mdd_pct": -57.85797
+  },
+  "full_cost10bp": {
+    "n": 1191,
+    "mean_month_pp": 0.343101
+  },
+  "periods": [
+    {
+      "label": "1927–1949",
+      "n": 270,
+      "mean_month_pp": 0.467062
+    },
+    {
+      "label": "1950–1979",
+      "n": 360,
+      "mean_month_pp": 0.412213
+    },
+    {
+      "label": "1980–1999",
+      "n": 240,
+      "mean_month_pp": 0.480847
+    },
+    {
+      "label": "2000–2019",
+      "n": 240,
+      "mean_month_pp": 0.233792
+    }
+  ],
+  "recent_period": {
+    "label": "2020–Sep 2026",
+    "from": "202001",
+    "to": "202609",
+    "n": 81,
+    "mean_month_pp": 0.76893,
+    "synthetic_cagr_pct": 7.667998,
+    "synthetic_mdd_pct": -31.05739
+  },
+  "subwindow": {
+    "label": "2024–Sep 2026",
+    "from": "202401",
+    "to": "202609",
+    "n": 33,
+    "mean_month_pp": -0.079495,
+    "synthetic_cagr_pct": -2.431918,
+    "synthetic_mdd_pct": -21.9446
+  },
+  "precision_note": "means are rounded to six decimal places in archived official-host replay; original raw ZIP not redistributed",
+  "subsequent_attempt": "2026-11-15 official host re-download connection reset; this does not negate successful archived November 4 source-linked replay; do not describe the November 15 attempt as successful"
+}
