@@ -3,9 +3,9 @@ name: T20 replication v1.0.3 corrected Figure7 axis original source-to-chart QA 
 on:
   push:
     branches:
-      - review/t20-century-longcash-v103-20261116
+      - review/t20-fig7-axis-clarity-v103-20261116
     paths:
-      - .github/workflows/t20-v103-scientific-replay-once.yml
+      - .github/workflows/t20-v103-axis-scientific-once.yml
 
 permissions:
   contents: read
