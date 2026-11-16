@@ -1,8 +1,9 @@
 cff-version: 1.2.0
-message: "Please cite this software version separately from the accompanying SSRN working paper. Version-specific Zenodo DOI will be added only after the v1.0.3 software archive has actually been published."
+message: "Cite this released software version using DOI 10.5281/zenodo.24268624, separately from the accompanying SSRN working paper."
 type: software
 license: MIT
 version: "v1.0.3"
+doi: 10.5281/zenodo.24268624
 date-released: 2026-11-16
 title: "Momentum as a Market Regularity: Replication Code and Empirical Exhibits"
 authors:
