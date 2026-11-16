@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "Please cite this software version separately from the accompanying SSRN working paper. Version-specific Zenodo DOI will be added only after the v1.0.1 software archive has actually been published."
+message: "Please cite this software version separately from the accompanying SSRN working paper. Version-specific Zenodo DOI will be added only after the v1.0.2 software archive has actually been published."
 type: software
 license: MIT
-version: "v1.0.1"
-date-released: 2026-11-15
+version: "v1.0.2"
+date-released: 2026-11-16
 title: "Momentum as a Market Regularity: Replication Code and Empirical Exhibits"
 authors:
   - family-names: "Lee"
@@ -11,7 +11,7 @@ authors:
     affiliation: "Graduate School of Computing, Yonsei University"
 repository-code: "https://github.com/slackquant80/momentum-market-regularity-replication"
 url: "https://github.com/slackquant80/momentum-market-regularity-replication"
-abstract: "Source-pinned Python analyses and author-created empirical exhibits supporting Momentum as a Market Regularity. Includes U.S. stock and industry momentum, international factor diagnostics, and an analysis of published AQR multi-asset time-series momentum factors. Third-party original datasets are not redistributed, and the complete all-input archived-vintage replay has not been independently executed in a clean environment."
+abstract: "Source-pinned Python analyses and author-created empirical exhibits supporting Momentum as a Market Regularity. Includes U.S. stock and industry momentum, international factor diagnostics, an analysis of AQR multi-asset time-series momentum factors, and an exact-202609 source-replayed 1927–2026 long-only U.S. market-to-Treasury-bills absolute-momentum experiment with original Figure 7. Third-party original datasets are not redistributed, and the complete all-input archived-vintage replay has not been independently executed in a clean environment."
 keywords:
   - "momentum"
   - "asset pricing"
@@ -19,3 +19,5 @@ keywords:
   - "cross-sectional momentum"
   - "time-series momentum"
   - "portfolio diversification"
+  - "absolute momentum"
+  - "drawdown management"

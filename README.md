@@ -1,17 +1,18 @@
 # Momentum as a Market Regularity — reproducibility package
 
-**Status:** Public replication package. GitHub **v1.0.1** incorporates the revised Figure 6 with five contiguous historical periods, without changing the original research data, ranking rule, or archived **v1.0.0**. The software release and any Zenodo New Version are distinct operations; do not infer a new Zenodo DOI from a source commit or GitHub tag. Archived September 2026 French and May 2026 AQR original provider raw datasets are not bundled; full clean-environment raw-vintage replay is not claimed.
+**Status:** Public replication package. GitHub **v1.0.2** adds a source-verified 1927–2026 U.S. equity-market-to-Treasury-bills long-only absolute-momentum rule, matched static controls, actual historical bill returns, switching costs, adverse subperiods, and the original Figure 7. Prior **v1.0.0 and v1.0.1** tags and findings remain immutable. Provider-original archived September 2026 French and May 2026 AQR raw data are not bundled; a new exact-202609 source-to-Figure7 replay was completed, but a fresh full all-provider-data replay of every older T20 exhibit is not claimed. The software Release and any Zenodo New Version are distinct operations.
 
-This standalone public source package supports the provider-created *French momentum research factors* and the author's *12-industry ranking calculation* underlying the paper's empirical discussion. **It is not a stock-level recreation of the Kenneth French factor, an investable net-return fund simulation, or a replication of all cited historical studies.**
+This public package supports the provider-created *French momentum research factors*, the author's *12-industry ranking calculation*, and a distinct **1927–2026 long-only absolute-momentum market-to-Treasury-bills test**. The U.S. research market is French's CRSP value-weighted portfolio, **not a historically traded ETF or the S&P 500**. The long-only simulation includes an illustrative 10bp one-way turnover cost and contemporaneous bill interest but does not verify execution at historically observable ETF next-session prices, all real costs or actual investor adherence.
 
 ## Permanent Zenodo archival references
 
 - **Fixed version v1.0.0:** [10.5281/zenodo.24047812](https://doi.org/10.5281/zenodo.24047812)
 - **All versions (concept DOI):** [10.5281/zenodo.24047811](https://doi.org/10.5281/zenodo.24047811)
-- **Current source release v1.0.1:** [GitHub Release v1.0.1](https://github.com/slackquant80/momentum-market-regularity-replication/releases/tag/v1.0.1)
+- **Current source release v1.0.2:** [GitHub Release v1.0.2](https://github.com/slackquant80/momentum-market-regularity-replication/releases/tag/v1.0.2)
+- **Prior preserved source release v1.0.1:** [GitHub Release v1.0.1](https://github.com/slackquant80/momentum-market-regularity-replication/releases/tag/v1.0.1)
 - **Previous preserved source release v1.0.0:** [GitHub Release v1.0.0](https://github.com/slackquant80/momentum-market-regularity-replication/releases/tag/v1.0.0)
 
-The public Zenodo record is a *software archive*, distinct from the working paper and its SSRN record. **The author has approved releasing software v1.0.1 independently of SSRN's administrative review.** GitHub v1.0.1 was published from tested commit `f1fc47d8b7f90f5beb8a599cf66530a37b84f1fe` on November 15, 2026. The Zenodo v1.0.1 New Version is **not independently verified**; check the existing repository integration or use the authenticated Zenodo versioning flow. Preserve v1.0.0 and DOI 10.5281/zenodo.24047812. The concept DOI remains 10.5281/zenodo.24047811; do not state a v1.0.1 version DOI until it is actually minted. The deposited v1.0.0 ZIP has been independently checked against its Zenodo-listed MD5, and contains MIT + CC BY 4.0 notices with no original third-party raw data. Zenodo lists MIT as the primary software-record license; the author's SVGs and narrative are separately licensed CC BY 4.0 as specified in `exhibits/LICENSE.md` and below. The all-input original-vintage combined replay remains outside the completed smoke-test scope.
+The public Zenodo record is a *software archive*, distinct from the working paper and its SSRN record. **The author has approved releasing software v1.0.1 independently of SSRN's administrative review.** GitHub v1.0.1 was published from tested commit `f1fc47d8b7f90f5beb8a599cf66530a37b84f1fe` on November 15, 2026. The Zenodo New Version DOI for **v1.0.2** (as well as the prior v1.0.1) is **not independently verified**; use the authenticated Zenodo integration or New Version operation and check the actual deposited files. Preserve v1.0.0's fixed DOI 10.5281/zenodo.24047812 and all-versions concept DOI 10.5281/zenodo.24047811. Do not invent a new version DOI. The deposited v1.0.0 ZIP has been independently checked against its Zenodo-listed MD5, and contains MIT + CC BY 4.0 notices with no original third-party raw data. Zenodo lists MIT as the primary software-record license; the author's SVGs and narrative are separately licensed CC BY 4.0 as specified in `exhibits/LICENSE.md` and below. The all-input original-vintage combined replay remains outside the completed smoke-test scope.
 
 ## Contents and scope
 
@@ -19,13 +20,19 @@ The public Zenodo record is a *software archive*, distinct from the working pape
 - `scripts/t20_12industry_official_live_source_check.py` — industry source parser, 12–2 ranking and synthetic long–short spread diagnostics; the synthetic wealth-path statistics are **not funded account performance**.
 - `scripts/t20_conditional_mom_panel.py` — separately supplied official US Mom and FF3 monthly inputs, sample/figure-value consistency.
 - `scripts/t20_mom_rolling_stability.py` — Figure 5 trailing-window analysis of the provider-constructed US Mom factor.
-- `exhibits/` — author-created Figure 4–6 SVG assets: v1.0.0's original Figure 6 is retained unchanged, and v1.0.1 stages a source-identical verified five-contiguous-era Figure 6 (1927–2026). The archived research-branch SVG and staged public SVG share the same Git blob identity. No provider raw data are packaged. Original author-code/figure licensing and third-party data-use boundaries are specified below.
+- `exhibits/` — original author-created Figures 4–7: v1.0.0's first Figure 6 and v1.0.1's revised five-contiguous-era Figure 6 both remain unchanged. v1.0.2 adds the source-derived Figure 7 wealth/underwater path; the paper uses a print-only reduction of redundant banner/footer text. No provider raw data are packaged.
 - `scripts/verify_exhibit_labels.py` — deterministic checks for 16 current SVG labels (Figure 4: 9, Figure 5: 2, revised Figure 6: 5), **plus five archived v1.0.0 Figure 6 values**, preserving both historical and revised exhibit versions. This checks displayed labels, not full SVG geometry.
 - `scripts/t20_fig6_contiguous_official_replay_render.py` — offline source-locked SVG regeneration from the archived November 4 official 202609-data computation receipt; this does not refetch provider files.
 - `scripts/t20_french_international_momentum_replay.py` — six published international/US WML factors with historical regional diagnostics.
 - `scripts/test_t20_international_momentum.py` — synthetic parser/contract tests, **not** a test of real-data result parity.
 - `scripts/t20_crossasset_independent_replay.py` — AQR 202605 published TSMOM research-factor diagnostics using archived, independently verified AQR XLSX-to-CSV parity; the companion French 202605 FF3 input has separate provider-origin limitations.
 - `scripts/verify_pinned_inputs.py` and `provenance/pinned_inputs.json` — deterministic local SHA-256 checks for original vintage source ZIP/CSV files; these are source-identity tests, not a replay of calculations.
+- `scripts/t20_absolute_momentum_longrun.py` — original-data 1191-month market-to-bills rule, passive controls, 0/10/20bp switch costs, one-month delayed signal, subperiods, long underwater paths and rolling diagnostics. Rejects data with a different source SHA.
+- `scripts/t20_absolute_momentum_hac_crisis_robustness.py` — HAC(12) return comparisons, post-1950 and post-2010 subsamples, exits/reentries and unfavorable crisis evidence.
+- `scripts/t20_absolute_momentum_figure_candidate.py` — generates Figure 7's 3 original source-derived wealth paths and 3 drawdown paths, **not from stored summary values**.
+- `exhibits/t20_fig07_absolute_momentum_1927_202609.svg` — newly added Figure 7 (original 6 source paths); provider data are never redistributed.
+- `provenance/t20_absolute_momentum_202609_source_locked_results.json` and `provenance/t20_absolute_momentum_202609_hac_crisis_results.json` — saved *derived* results from authenticated exact-202609 source bytes. The author's separate [whole-path run 43765923081](https://github.com/slackquant80/research-investment-papers/actions/runs/43765923081) and [robustness run 43766291492](https://github.com/slackquant80/research-investment-papers/actions/runs/43766291492) both PASS; these are in the author's private repository and may not be publicly viewable.
+- `tests/test_t20_absolute_momentum_contract.py` — offline no-lookahead synthetic path/turnover and derived-receipt check; **not a fresh original-source replay**.
 
 ## Data provenance and the frozen vintage
 
@@ -55,6 +62,7 @@ Use Python 3.13.5 for the recorded local test environment. The regional statisti
 ```bash
 python -m pip install -r requirements.txt
 python scripts/run_release_smoke.py
+python tests/test_t20_absolute_momentum_contract.py
 python tests/test_verify_pinned_inputs.py
 python tests/test_aqr_synthetic_contract.py
 python scripts/verify_exhibit_labels.py
@@ -64,6 +72,11 @@ python scripts/test_t20_international_momentum.py
 python scripts/t20_french_international_momentum_replay.py --source-dir /path/to/202609_official_zip --output output/regional.json --strict-vintage 202609
 python scripts/t20_french_official_202609_fig4_and_sector_era_audit.py --out output/us_industry_check.json
 python scripts/t20_crossasset_independent_replay.py --aqr /path/to/archived_202605_aqr.csv --ff3 /path/to/archived_202605_ff3.csv --out output/aqr.json --pin-aqr-sha256
+# New century-scale absolute-momentum replay requires the frozen original Sept 2026 3-factor CSV
+# SHA256 a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb
+python scripts/t20_absolute_momentum_longrun.py --csv /path/to/202609/F-F_Research_Data_Factors.csv --output output/longcash_results.json
+python scripts/t20_absolute_momentum_hac_crisis_robustness.py --csv /path/to/202609/F-F_Research_Data_Factors.csv --output output/longcash_hac.json
+python scripts/t20_absolute_momentum_figure_candidate.py --csv /path/to/202609/F-F_Research_Data_Factors.csv --svg output/longcash_fig07.svg
 # Optional SINGLE-COMMAND bounded source+regional+AQR replay, requires ALL exact source files:
 python scripts/verify_real_data_release_gate.py --french-dir /path/to/202609_official_zip --aqr-csv /path/to/archived_202605_aqr.csv --ff3-csv /path/to/archived_202605_ff3.csv --out output/release_gate
 ```

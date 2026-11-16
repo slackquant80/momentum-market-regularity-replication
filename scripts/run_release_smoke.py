@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Single-command, offline T20 publication-candidate smoke QA.
 
-Does not claim original-source full-data parity or publication permission.
+Offline synthetics and frozen source-derived report consistency are checked. The separate 202609 original-source direct replay PASS is in private author evidence; this command itself does not refetch provider raw data.
 Run from a clean checkout or GitHub working-tree ZIP after installing requirements.
 """
 from __future__ import annotations
@@ -44,7 +44,8 @@ def main() -> None:
              command("tests/test_aqr_synthetic_contract.py"),
              command("scripts/test_t20_international_momentum.py"),
              command("scripts/verify_exhibit_labels.py"),
-             command("tests/test_release_reference_schema.py")]
+             command("tests/test_release_reference_schema.py"),
+             command("tests/test_t20_absolute_momentum_contract.py")]
     all_good = all(x["passed"] for x in syntax) and all(x["passed"] for x in tests)
     output = {
         "status": "OFFLINE_SMOKE_PASS" if all_good else "OFFLINE_SMOKE_FAIL",
