@@ -1,0 +1,54 @@
+name: T20 v1.0.3 corrected Figure7 verified release (one-time)
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/t20-publish-v103-once.yml]
+permissions:
+  contents: write
+jobs:
+  release-corrected-source:
+    if: github.repository == 'slackquant80/momentum-market-regularity-replication'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      APPROVED: 4766f1d13deee38f763caa475daaf993c286d0a1
+      TAG: v1.0.3
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - name: Exact source and previous releases remain immutable
+        shell: bash
+        run: |
+          set -euo pipefail
+          git cat-file -e "$APPROVED^{commit}"
+          git show "$APPROVED:CITATION.cff" | grep -Fx 'version: "v1.0.3"'
+          git show "$APPROVED:provenance/t20_absolute_momentum_202609_source_locked_results.json" | grep -F 'a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb'
+          git cat-file -e refs/tags/v1.0.0
+          git cat-file -e refs/tags/v1.0.1
+          git cat-file -e refs/tags/v1.0.2
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null; then
+            echo 'Refusing to overwrite tag'; exit 1
+          fi
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo 'Refusing to duplicate release'; exit 1
+          fi
+      - name: Publish v1.0.3 exact source tag and correction release
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > /tmp/t20_notes_v103.md <<'EOF'
+          T20 Replication v1.0.3 — verified Figure 7 downside-axis correction.
+
+          The v1.0.2 source Figure 7 had a misleading **upside-down underwater drawdown axis** (0% at the bottom, −100% at the top). This update corrects the graphic to the standard 0%-at-top convention. All 1927–September 2026 historical research market/Treasury-bill return paths, 1,191 monthly observations, source provider CSV SHA256 a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb, CAGR, Sharpe, MDD, Calmar, all four published economic comparison controls, and original Figures 4–6 remain unchanged.
+
+          The newly corrected SVG was **recomputed directly from exact archived French 202609 input**, with full public scientific source-to-output replay and all previous synthetic QA PASSED in GitHub Actions run 43793174040. The public source does not distribute the original provider CSV.
+
+          Original paper source v0.5.41 with corrected Figure 7 is maintained separately. Existing SSRN working paper abstract ID 7707479 is not automatically changed by this software release. Preserved v1.0.0/1.0.1/1.0.2 releases and tags remain immutable. New version-specific Zenodo DOI is **not yet verified**; preserve concept DOI 10.5281/zenodo.24047811 and original v1.0.0 version DOI 10.5281/zenodo.24047812.
+          EOF
+          gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$APPROVED" \
+            --title "T20 Replication v1.0.3 — Corrected Century Drawdown Figure 7" \
+            --notes-file /tmp/t20_notes_v103.md --latest
+          git fetch origin "refs/tags/$TAG:refs/tags/$TAG"
+          test "$(git rev-parse "$TAG^{commit}")" = "$APPROVED"
+          echo T20_v1.0.3_SOURCE_REPLAYED_IMMUTABLE_RELEASE_PASS
