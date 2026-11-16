@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git rev-parse HEAD)" = 4766f1d13deee38f763caa475daaf993c286d0a1
-          test "$(git rev-parse v1.0.3 2>/dev/null || git rev-parse HEAD)" = 4766f1d13deee38f763caa475daaf993c286d0a1
+          # Exact SHA checkout is authoritative; shallow checkout need not fetch tag refs.
           mkdir -p dist
           ZIP=dist/momentum-market-regularity-replication-v1.0.3.zip
           git archive --format=zip --prefix=momentum-market-regularity-replication-v1.0.3/ HEAD > "$ZIP"
