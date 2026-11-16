@@ -56,5 +56,10 @@ def check():
     assert recent["rule"]["mdd_pct"]<recent["matched_static"]["mdd_pct"]
     source=(ROOT/"exhibits"/"t20_fig07_absolute_momentum_1927_202609.svg").read_text()
     assert source.count("<polyline")==6 and "Underwater drawdown" in source
+    import re
+    ticks={label:float(y) for y,label in re.findall(
+        r'<text x="84" y="([0-9.]+)"[^>]*>(-100%|0%)</text>',source)}
+    assert set(ticks)=={'-100%','0%'},ticks
+    assert ticks['0%']<ticks['-100%'],ticks
     print("T20_CENTURY_OWN_TREND_SYNTHETIC_CLOCK_AND_FROZEN_SOURCE_METADATA_PASS")
 if __name__=="__main__":check()
