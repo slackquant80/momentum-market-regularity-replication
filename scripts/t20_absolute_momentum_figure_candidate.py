@@ -33,7 +33,9 @@ def make_chart(rows):
     upper=max(4.,math.ceil(max_log))
     x=lambda i:98+1030*i/(n-1)
     yg=lambda v:365-252*(math.log10(max(v,1e-12)) + 1)/(upper+1)
-    yd=lambda v:647+225*v
+    # Standard underwater convention: 0% at the TOP, deeper losses below.
+    # Leave a 30px separation from the panel heading at y=411.
+    yd=lambda v:452-190*v
     s=['<svg xmlns="http://www.w3.org/2000/svg" width="1215" height="765" viewBox="0 0 1215 765">',
        '<rect width="1215" height="765" fill="#fff"/>',
        '<g font-family="Liberation Sans,Arial,sans-serif" fill="#263b4b">',
