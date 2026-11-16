@@ -1,0 +1,441 @@
+{
+  "method": "match sample using market total returns Mkt-RF+RF and actual monthly bills; 12m lagged positive-return rule; 10bp weight turnover; HAC12 Bartlett on monthly active differences; static comparator weight estimated ex-post",
+  "retrospective_crisis_case_panel": [
+    {
+      "cash_missed_positive_market_excess_months": 15,
+      "cash_protected_negative_market_excess_months": 22,
+      "month_of_exit_to_bills": [
+        "192912"
+      ],
+      "month_of_reentry_to_market": [],
+      "months": 40,
+      "risk_off_months": 37,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": -75.1571364711309,
+      "total_return_pct_matched": -62.25886439918493,
+      "total_return_pct_rule": -30.043970690801657,
+      "window": "1929-1932"
+    },
+    {
+      "cash_missed_positive_market_excess_months": 4,
+      "cash_protected_negative_market_excess_months": 16,
+      "month_of_exit_to_bills": [
+        "197305"
+      ],
+      "month_of_reentry_to_market": [],
+      "months": 24,
+      "risk_off_months": 20,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": -41.74727291508077,
+      "total_return_pct_matched": -30.533478572834728,
+      "total_return_pct_rule": -1.0576504506981554,
+      "window": "1973-1974"
+    },
+    {
+      "cash_missed_positive_market_excess_months": 1,
+      "cash_protected_negative_market_excess_months": 0,
+      "month_of_exit_to_bills": [
+        "198712"
+      ],
+      "month_of_reentry_to_market": [],
+      "months": 12,
+      "risk_off_months": 1,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": 1.64476560239466,
+      "total_return_pct_matched": 3.5340086128687886,
+      "total_return_pct_rule": -4.916019566606112,
+      "window": "1987"
+    },
+    {
+      "cash_missed_positive_market_excess_months": 11,
+      "cash_protected_negative_market_excess_months": 13,
+      "month_of_exit_to_bills": [
+        "200012",
+        "200205"
+      ],
+      "month_of_reentry_to_market": [
+        "200204"
+      ],
+      "months": 36,
+      "risk_off_months": 24,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": -38.09002172913445,
+      "total_return_pct_matched": -27.686594581369906,
+      "total_return_pct_rule": -12.857949165001326,
+      "window": "2000-2002"
+    },
+    {
+      "cash_missed_positive_market_excess_months": 11,
+      "cash_protected_negative_market_excess_months": 10,
+      "month_of_exit_to_bills": [
+        "200802"
+      ],
+      "month_of_reentry_to_market": [
+        "200911"
+      ],
+      "months": 36,
+      "risk_off_months": 21,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": -13.846939793170609,
+      "total_return_pct_matched": -8.228964521431514,
+      "total_return_pct_rule": 9.162580438407097,
+      "window": "2007-2009"
+    },
+    {
+      "cash_missed_positive_market_excess_months": 2,
+      "cash_protected_negative_market_excess_months": 0,
+      "month_of_exit_to_bills": [
+        "202004"
+      ],
+      "month_of_reentry_to_market": [
+        "202006"
+      ],
+      "months": 12,
+      "risk_off_months": 2,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": 24.06619295233048,
+      "total_return_pct_matched": 18.614917112931174,
+      "total_return_pct_rule": 3.247206011077064,
+      "window": "2020"
+    },
+    {
+      "cash_missed_positive_market_excess_months": 3,
+      "cash_protected_negative_market_excess_months": 5,
+      "month_of_exit_to_bills": [
+        "202205"
+      ],
+      "month_of_reentry_to_market": [],
+      "months": 12,
+      "risk_off_months": 8,
+      "scientific_limit": "retrospective window, not a predictive crisis selection or investor behavior measure",
+      "total_return_pct_market": -19.916794021652827,
+      "total_return_pct_matched": -14.74262463961199,
+      "total_return_pct_rule": -13.25094815381329,
+      "window": "2022"
+    }
+  ],
+  "sample_windows": {
+    "full": {
+      "annual_mean_excess_vs_market_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -3.3135312928451937,
+          1.58275043642202
+        ],
+        "annual_mean_active_return_pp": -0.8653904282115868,
+        "annual_mean_active_se_pp": 1.2490514615477586,
+        "hac12_t": -0.6928380894244668,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "annual_mean_excess_vs_matched_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -0.7420242038250638,
+          3.062481908384789
+        ],
+        "annual_mean_active_return_pp": 1.1602288522798627,
+        "annual_mean_active_se_pp": 0.9705372735229216,
+        "hac12_t": 1.1954500707308084,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "buy_hold": {
+        "cagr_pct": 10.263886615891394,
+        "calmar": 0.1226970827050451,
+        "end_wealth": 16274.388665905819,
+        "from_month": "192707",
+        "longest_underwater_months": 184,
+        "maxdd_trough": "193206",
+        "mdd_pct": -83.65224657023862,
+        "months": 1191,
+        "sharpe": 0.44880870166715586,
+        "through_month": "202609",
+        "underwater_fraction": 0.6985726280436608,
+        "vol_pct": 18.394512178121676
+      },
+      "matched_static": {
+        "cagr_pct": 8.851715213087452,
+        "calmar": 0.12125516611446999,
+        "end_wealth": 4527.945782266688,
+        "from_month": "192707",
+        "longest_underwater_months": 164,
+        "maxdd_trough": "193206",
+        "mdd_pct": -73.000726457552,
+        "months": 1191,
+        "sharpe": 0.44826432657948007,
+        "through_month": "202609",
+        "underwater_fraction": 0.6624685138539043,
+        "vol_pct": 13.898045145618806
+      },
+      "rule": {
+        "cagr_pct": 10.2191473921593,
+        "calmar": 0.22961988991075158,
+        "end_wealth": 15631.905947140624,
+        "from_month": "192707",
+        "longest_underwater_months": 95,
+        "maxdd_trough": "194008",
+        "mdd_pct": -44.504626302761785,
+        "months": 1191,
+        "sharpe": 0.5649803280460651,
+        "through_month": "202609",
+        "underwater_fraction": 0.7019311502938707,
+        "vol_pct": 13.080502689023419
+      }
+    },
+    "post1950": {
+      "annual_mean_excess_vs_market_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -3.061961719044149,
+          0.9394861490115752
+        ],
+        "annual_mean_active_return_pp": -1.0612377850162866,
+        "annual_mean_active_se_pp": 1.020777517361154,
+        "hac12_t": -1.0396367151186163,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "annual_mean_excess_vs_matched_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -0.6629485605725254,
+          2.582121365793568
+        ],
+        "annual_mean_active_return_pp": 0.9595864026105214,
+        "annual_mean_active_se_pp": 0.8278239608076768,
+        "hac12_t": 1.1591672240004853,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "buy_hold": {
+        "cagr_pct": 11.650564760482297,
+        "calmar": 0.2315676691456808,
+        "end_wealth": 4713.309213019482,
+        "from_month": "195001",
+        "longest_underwater_months": 72,
+        "maxdd_trough": "200902",
+        "mdd_pct": -50.31170717166413,
+        "months": 921,
+        "sharpe": 0.5539925949270473,
+        "through_month": "202609",
+        "underwater_fraction": 0.6460369163952225,
+        "vol_pct": 14.874080210845984
+      },
+      "matched_static": {
+        "cagr_pct": 9.958424443235447,
+        "calmar": 0.24743377415566362,
+        "end_wealth": 1459.7820412823412,
+        "from_month": "195001",
+        "longest_underwater_months": 64,
+        "maxdd_trough": "200902",
+        "mdd_pct": -40.24682756918415,
+        "months": 921,
+        "sharpe": 0.5536343845001913,
+        "through_month": "202609",
+        "underwater_fraction": 0.6112920738327905,
+        "vol_pct": 11.233597983888684
+      },
+      "rule": {
+        "cagr_pct": 10.901292023399467,
+        "calmar": 0.3651689485085292,
+        "end_wealth": 2811.153077795339,
+        "from_month": "195001",
+        "longest_underwater_months": 40,
+        "maxdd_trough": "198711",
+        "mdd_pct": -29.852735474699998,
+        "months": 921,
+        "sharpe": 0.5954113121559408,
+        "through_month": "202609",
+        "underwater_fraction": 0.6644951140065146,
+        "vol_pct": 12.057030764412383
+      }
+    },
+    "post1980": {
+      "annual_mean_excess_vs_market_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -3.3308840207461894,
+          1.492595250692713
+        ],
+        "annual_mean_active_return_pp": -0.919144385026738,
+        "annual_mean_active_se_pp": 1.2304794059793118,
+        "hac12_t": -0.7469807138260969,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "annual_mean_excess_vs_matched_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -0.7075317170308784,
+          3.2126503089199288
+        ],
+        "annual_mean_active_return_pp": 1.2525592959445253,
+        "annual_mean_active_se_pp": 1.0000464351915326,
+        "hac12_t": 1.2525011358143892,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "buy_hold": {
+        "cagr_pct": 12.22538802405737,
+        "calmar": 0.24299290784039992,
+        "end_wealth": 219.66438936032463,
+        "from_month": "198001",
+        "longest_underwater_months": 72,
+        "maxdd_trough": "200902",
+        "mdd_pct": -50.31170717166413,
+        "months": 561,
+        "sharpe": 0.5706619697465418,
+        "through_month": "202609",
+        "underwater_fraction": 0.6506238859180036,
+        "vol_pct": 15.519643953440376
+      },
+      "matched_static": {
+        "cagr_pct": 10.409172258271937,
+        "calmar": 0.25863336036557444,
+        "end_wealth": 102.44504277025966,
+        "from_month": "198001",
+        "longest_underwater_months": 64,
+        "maxdd_trough": "200902",
+        "mdd_pct": -40.24682756918414,
+        "months": 561,
+        "sharpe": 0.5698747066899701,
+        "through_month": "202609",
+        "underwater_fraction": 0.6060606060606061,
+        "vol_pct": 11.73023969793549
+      },
+      "rule": {
+        "cagr_pct": 11.616429769141812,
+        "calmar": 0.38912446663344,
+        "end_wealth": 170.32952202444332,
+        "from_month": "198001",
+        "longest_underwater_months": 40,
+        "maxdd_trough": "198711",
+        "mdd_pct": -29.852735474699998,
+        "months": 561,
+        "sharpe": 0.6127973997299839,
+        "through_month": "202609",
+        "underwater_fraction": 0.6631016042780749,
+        "vol_pct": 12.952610775936662
+      }
+    },
+    "post2000": {
+      "annual_mean_excess_vs_market_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -4.662322356084664,
+          3.291855066365038
+        ],
+        "annual_mean_active_return_pp": -0.6852336448598131,
+        "annual_mean_active_se_pp": 2.0291268934820668,
+        "hac12_t": -0.33769876445919234,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "annual_mean_excess_vs_matched_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -1.880844036791417,
+          4.1889185147294254
+        ],
+        "annual_mean_active_return_pp": 1.1540372389690043,
+        "annual_mean_active_se_pp": 1.5484088141634802,
+        "hac12_t": 0.7453052633212159,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "buy_hold": {
+        "cagr_pct": 8.484711916638886,
+        "calmar": 0.16864289434045543,
+        "end_wealth": 8.833004388858173,
+        "from_month": "200001",
+        "longest_underwater_months": 72,
+        "maxdd_trough": "200902",
+        "mdd_pct": -50.31170717166413,
+        "months": 321,
+        "sharpe": 0.4794213779372234,
+        "through_month": "202609",
+        "underwater_fraction": 0.7009345794392523,
+        "vol_pct": 15.634111134245654
+      },
+      "matched_static": {
+        "cagr_pct": 7.08317859434513,
+        "calmar": 0.17599346388654286,
+        "end_wealth": 6.237973792302828,
+        "from_month": "200001",
+        "longest_underwater_months": 64,
+        "maxdd_trough": "200902",
+        "mdd_pct": -40.24682756918416,
+        "months": 321,
+        "sharpe": 0.4789957492877724,
+        "through_month": "202609",
+        "underwater_fraction": 0.67601246105919,
+        "vol_pct": 11.808155348737468
+      },
+      "rule": {
+        "cagr_pct": 8.319855559753432,
+        "calmar": 0.4005777707475552,
+        "end_wealth": 8.480880270590543,
+        "from_month": "200001",
+        "longest_underwater_months": 40,
+        "maxdd_trough": "202004",
+        "mdd_pct": -20.769638675223987,
+        "months": 321,
+        "sharpe": 0.5760826562650844,
+        "through_month": "202609",
+        "underwater_fraction": 0.7009345794392523,
+        "vol_pct": 11.821382546205767
+      }
+    },
+    "post2010": {
+      "annual_mean_excess_vs_market_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -6.158176011897886,
+          -0.33376428660957735
+        ],
+        "annual_mean_active_return_pp": -3.245970149253732,
+        "annual_mean_active_se_pp": 1.4858193176755892,
+        "hac12_t": -2.184633158715231,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "annual_mean_excess_vs_matched_hac12": {
+        "annual_mean_active_95pct_normal_ci_pp": [
+          -3.1504278464124678,
+          3.0196416129639942
+        ],
+        "annual_mean_active_return_pp": -0.06539311672423695,
+        "annual_mean_active_se_pp": 1.573997311065424,
+        "hac12_t": -0.04154588846150757,
+        "qualification": "conditional HAC estimate for monthly return differences; ex-post average-exposure-matched comparator, not an ex-ante investable strategy"
+      },
+      "buy_hold": {
+        "cagr_pct": 14.148782053588494,
+        "calmar": 0.569483623980387,
+        "end_wealth": 9.175800733997933,
+        "from_month": "201001",
+        "longest_underwater_months": 23,
+        "maxdd_trough": "202209",
+        "mdd_pct": -24.84493224703469,
+        "months": 201,
+        "sharpe": 0.8727232553364868,
+        "through_month": "202609",
+        "underwater_fraction": 0.527363184079602,
+        "vol_pct": 14.88016799977381
+      },
+      "matched_static": {
+        "cagr_pct": 11.128268685566889,
+        "calmar": 0.5859162473086037,
+        "end_wealth": 5.855462240559152,
+        "from_month": "201001",
+        "longest_underwater_months": 23,
+        "maxdd_trough": "202209",
+        "mdd_pct": -18.992934121018834,
+        "months": 201,
+        "sharpe": 0.8717554801975538,
+        "through_month": "202609",
+        "underwater_fraction": 0.5174129353233831,
+        "vol_pct": 11.248213342994754
+      },
+      "rule": {
+        "cagr_pct": 10.784501100432585,
+        "calmar": 0.519243558786478,
+        "end_wealth": 5.559341527773911,
+        "from_month": "201001",
+        "longest_underwater_months": 26,
+        "maxdd_trough": "202004",
+        "mdd_pct": -20.769638675224012,
+        "months": 201,
+        "sharpe": 0.7349427092590107,
+        "through_month": "202609",
+        "underwater_fraction": 0.6318407960199005,
+        "vol_pct": 13.253139849884517
+      }
+    }
+  },
+  "source_sha256": "a3894d74d553cab812eabbe706bdbf443c97eb20b24b05e3e5f3ce47e46b90bb",
+  "status": "INDEPENDENT_PRIVATE_SUPPLEMENT__NOT_MANUSCRIPT_ADOPTED"
+}
